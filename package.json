@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "alpinejs": "^2.8.0",
+    "autoprefixer": "^10.2.1",
+    "laravel-mix": "^6.0.9",
+    "postcss": "^8.2.4",
+    "tailwindcss": "^2.0.2"
+  }
+}
