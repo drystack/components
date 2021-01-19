@@ -2,25 +2,22 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   purge: [
-    './resources/**/*.html',
-    './resources/js/*.js',
+    './resources/**/*.blade.php',
+    './resources/**/*.js',
+    './vendor/drystack/resources/**/*.blade.php',
+    './vendor/drystack/resources/**/*.js'
   ],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
-    extend: {},
-    colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
-      black: colors.black,
-      white: colors.white,
-      gray: colors.trueGray,
-      indigo: colors.indigo,
-      red: colors.rose,
-      yellow: colors.amber,
-
-      primary: colors.indigo,
-      secondary: colors.yellow,
-      neutral: colors.gray,
+    extend: {
+      colors: {
+        primary: colors.blueGray,
+        secondary: colors.yellow,
+        neutral: colors.gray,
+        success: colors.green,
+        alert: colors.red,
+        warning: colors.yellow,
+      }
     }
   },
   variants: {
