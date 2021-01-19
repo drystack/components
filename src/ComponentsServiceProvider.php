@@ -4,21 +4,22 @@
 namespace Drystack;
 
 
+use Drystack\Commands\PublishCommand;
 use Drystack\Commands\SetupCommand;
 use Drystack\Components\Column;
 use Drystack\Components\Row;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 
 class ComponentsServiceProvider extends ServiceProvider {
-    public function register() {
-        //$this->mergeConfigFrom(__DIR__ . '/../config/drystack.php', 'drystack');
-    }
+    public function register() {}
 
     public function boot() {
         if ($this->app->runningInConsole()) {
             $this->commands([
                 SetupCommand::class,
+                PublishCommand::class,
             ]);
             $this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/drystack'),
@@ -29,13 +30,9 @@ class ComponentsServiceProvider extends ServiceProvider {
             $this->publishes([
                 __DIR__.'/../resources/assets' => resource_path('drystack'),
             ], 'drystack-assets');
-//            $this->publishes([
-//                __DIR__.'/../config/drystack.php' => config_path('drystack.php'),
-//            ], 'drystack-config');
         }
 
-        Livewire::component('column', Column::class);
-        Livewire::component('row', Row::class);
+        Blade::componentNamespace('Drystack\\Components\\', 'drystack');
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'drystack');
     }

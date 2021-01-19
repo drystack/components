@@ -15,8 +15,8 @@ class PublishCommand extends Command {
         $this->callSilent('vendor:publish', ['--tag' => 'drystack-assets', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'drystack-views', '--force' => true]);
 
-        copy(__DIR__ . '/../../postcss.config.js', base_path());
-        copy(__DIR__ . '/../../tailwind.config.js', base_path());
+        copy(__DIR__ . '/../../postcss.config.js', base_path('postcss.config.js'));
+        copy(__DIR__ . '/../../tailwind.config.js', base_path('tailwind.config.js'));
 
         $this->addNpmDependencies([
             "alpinejs" => "^2.8.0",
@@ -25,7 +25,10 @@ class PublishCommand extends Command {
             "tailwindcss" => "^2.0.2"
         ]);
 
-        $this->addMixConfiguration();
+        $this->addMixConfigurations([
+            "mix.js('resources/drystack/js/components.js', 'public/drystack/js').version();",
+            "mix.postCss('resources/drystack/css/components.css', 'public/drystack/css', require('tailwindcss')).version();"
+        ]);
     }
 
     /**
@@ -50,12 +53,18 @@ class PublishCommand extends Command {
         );
     }
 
-    private function addMixConfiguration() {
+    /**
+     * @param string[] $configurations_to_add
+     */
+    private function addMixConfigurations($configurations_to_add) {
         $mix = file_get_contents(base_path('webpack.mix.js'));
 
-        $mix .= "\n";
-        $mix .= "mix.js('resources/drystack/js/components.js', 'public/drystack/js').version(); \n";
-        $mix .= "mix.postCss('resources/drystack/css/components.css', 'public/drystack/css', require('tailwindcss')).version();";
+        foreach ($configurations_to_add as $config_to_add) {
+            if (!str_contains($mix, $config_to_add)) {
+                $mix .= "\n";
+                $mix .= $config_to_add;
+            }
+        }
 
         file_put_contents(base_path('webpack.mix.js'), $mix);
     }

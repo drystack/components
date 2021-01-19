@@ -6,8 +6,8 @@ namespace Drystack\Components;
 
 use Illuminate\View\Component;
 
-class Row extends Component {
+class Center extends Component {
     public function render() {
-        return view('drystack::layout.row');
+        return view('drystack::layout.center');
     }
 }
