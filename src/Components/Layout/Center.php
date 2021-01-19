@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Drystack\Components;
+namespace Drystack\Components\Layout;
 
 
 use Illuminate\View\Component;
