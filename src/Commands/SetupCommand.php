@@ -14,5 +14,6 @@ class SetupCommand extends Command {
     public function handle() {
         //$this->callSilent('vendor:publish', ['--tag' => 'drystack-config', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'drystack-compiled-assets', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'drystack-menu', '--force' => true]);
     }
 }

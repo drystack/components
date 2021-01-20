@@ -13,7 +13,7 @@
 <body class="h-screen overflow-hidden flex items-center justify-center bg-neutral-100">
 
 <main class="flex w-full h-screen">
-    @include('drystack::template.base.menu')
+    @include('drystack::menu')
 
     <section class="w-full p-4">
         {{ $slot }}
