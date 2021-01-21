@@ -11,14 +11,21 @@ export function init() {
         no_of_days: [],
         blankdays: [],
         days: DAYS,
+        ref_name: '',
+        max: '', //Set in format yyyy-mm-dd
+        min: '', //Set in format yyyy-mm-dd
 
         options: { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' },
 
-        initDate() {
+        initDate(ref_name, max, min) {
+            this.ref_name = ref_name;
             let today = new Date();
             this.month = today.getMonth();
             this.year = today.getFullYear();
-            this.datepickerValue = new Date(this.year, this.month, today.getDate()).toLocaleDateString('it-IT', this.options);
+
+            this.max = new Date(max ?? '2100-12-31');
+            this.min = new Date(min ?? '1900-01-01');
+            // this.datepickerValue = new Date(this.year, this.month, today.getDate()).toLocaleDateString('it-IT', this.options);
         },
 
         isToday(date) {
@@ -32,9 +39,10 @@ export function init() {
             let selectedDate = new Date(this.year, this.month, date);
             this.datepickerValue = selectedDate.toLocaleDateString('it-IT', this.options);
 
-            this.$refs.date.value = selectedDate.getFullYear() + "-" + ('0' + selectedDate.getMonth()).slice(-2) + "-" + ('0' + selectedDate.getDate()).slice(-2);
 
-            console.log(this.$refs.date.value);
+            this.$refs[this.ref_name].value = selectedDate.getFullYear() + "-" + ('0' + (selectedDate.getMonth() + 1)).slice(-2) + "-" + ('0' + selectedDate.getDate()).slice(-2);
+
+            console.log(this.$refs[this.ref_name].value);
 
             this.showDatepicker = false;
         },
@@ -56,6 +64,40 @@ export function init() {
 
             this.blankdays = blankdaysArray;
             this.no_of_days = daysArray;
+        },
+
+        prevMonth() {
+          if (this.month > 0) {
+              this.month--;
+          } else {
+              this.month = 11;
+              this.year--;
+          }
+        },
+
+        nextMonth() {
+            if (this.month < 11) {
+                this.month++;
+            } else {
+                this.month = 0;
+                this.year++;
+            }
+        },
+
+        isMinDate() {
+            if (this.min === '') return false;
+            return (
+                this.month <= this.min.getMonth()
+                && this.year <= this.min.getFullYear()
+            )
+        },
+
+        isMaxDate() {
+            if (this.max === '') return false;
+            return (
+                this.month >= this.max.getMonth()
+                && this.year >= this.max.getFullYear()
+            )
         }
     }
 }

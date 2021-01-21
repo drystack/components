@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Drystack\Components\Nav;
+namespace Drystack\Components\Navs;
 
 
 use Illuminate\View\Component;

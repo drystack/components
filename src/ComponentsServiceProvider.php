@@ -6,18 +6,20 @@ namespace Drystack;
 
 use Drystack\Commands\PublishCommand;
 use Drystack\Commands\SetupCommand;
-use Drystack\Components\Form\Datetime;
-use Drystack\Components\Layout\Card;
-use Drystack\Components\Layout\Center;
-use Drystack\Components\Layout\Column;
-use Drystack\Components\Form\Form;
-use Drystack\Components\Form\Input;
-use Drystack\Components\Nav\NavGroup;
-use Drystack\Components\Nav\NavLink;
-use Drystack\Components\Layout\Row;
+use Drystack\Components\Buttons\Button;
+use Drystack\Components\Forms\Datetime;
+use Drystack\Components\Layouts\Card;
+use Drystack\Components\Layouts\Center;
+use Drystack\Components\Layouts\Column;
+use Drystack\Components\Forms\Form;
+use Drystack\Components\Forms\Input;
+use Drystack\Components\Layouts\Modal;
+use Drystack\Components\Layouts\Tabs;
+use Drystack\Components\Navs\NavGroup;
+use Drystack\Components\Navs\NavLink;
+use Drystack\Components\Layouts\Row;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Livewire\Livewire;
 
 class ComponentsServiceProvider extends ServiceProvider {
     public function register() {}
@@ -49,6 +51,8 @@ class ComponentsServiceProvider extends ServiceProvider {
         Blade::component(Column::class, 'column', 'dry');
         Blade::component(Center::class, 'center', 'dry');
         Blade::component(Card::class, 'card', 'dry');
+        Blade::component(Tabs::class, 'tabs', 'dry');
+        Blade::component(Modal::class, 'modal', 'dry');
 
         Blade::component(NavLink::class, 'nav-link', 'dry');
         Blade::component(NavGroup::class, 'nav-group', 'dry');
@@ -56,6 +60,8 @@ class ComponentsServiceProvider extends ServiceProvider {
         Blade::component(Form::class, 'form', 'dry');
         Blade::component(Input::class, 'input', 'dry');
         Blade::component(Datetime::class, 'datetime', 'dry');
+
+        Blade::component(Button::class, 'button', 'dry');
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'drystack');
     }
