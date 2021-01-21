@@ -23,11 +23,11 @@
 @endif
 
 @if(isset($attributes['outline']))
-    @php($class = $base . "bg-transparent text-$bg-500 border-$bg-500 hover:border-$bg-600 hover:bg-$bg-600 hover:text-$text")
+    @php($class = $base . " bg-transparent text-$bg-500 border border-$bg-500 hover:border-$bg-700 hover:bg-$bg-600 hover:text-$text")
 @elseif(isset($attributes['text']))
-    @php($class = $base . "bg-transparent text-$bg-500 font-normal underline hover:text-$bg-600 focus:outline-none")
+    @php($class = $base . " bg-transparent text-$bg-500 font-normal underline hover:text-$bg-600 focus:outline-none")
 @else
-    @php($class = $base . "bg-transparent text-$text bg-$bg-500 border-$bg-500 hover:border-$bg-600 hover:bg-$bg-600")
+    @php($class = $base . " bg-transparent text-$text bg-$bg-500 border-$bg-500 hover:border-$bg-600 hover:bg-$bg-600")
 @endif
 
 

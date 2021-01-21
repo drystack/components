@@ -8,6 +8,7 @@ use Drystack\Commands\PublishCommand;
 use Drystack\Commands\SetupCommand;
 use Drystack\Components\Buttons\Button;
 use Drystack\Components\Forms\Datetime;
+use Drystack\Components\Forms\InputBase;
 use Drystack\Components\Layouts\Card;
 use Drystack\Components\Layouts\Center;
 use Drystack\Components\Layouts\Column;
@@ -59,6 +60,7 @@ class ComponentsServiceProvider extends ServiceProvider {
 
         Blade::component(Form::class, 'form', 'dry');
         Blade::component(Input::class, 'input', 'dry');
+        Blade::component(InputBase::class, 'input-base', 'dry');
         Blade::component(Datetime::class, 'datetime', 'dry');
 
         Blade::component(Button::class, 'button', 'dry');
