@@ -9,6 +9,8 @@
     @livewireStyles
     <link href="{{mix('drystack/css/components.css')}}" rel="stylesheet">
     <script src="{{mix('drystack/js/components.js')}}" defer></script>
+    <script src="https://kit.fontawesome.com/940802e517.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
 <!-- This example requires Tailwind CSS v2.0+ -->

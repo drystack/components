@@ -1,4 +1,3 @@
-<div class="flex flex-col {{$attributes['css'] ?? ''}}">
-        @slot('')
-        @endslot
+<div class="flex flex-row {{$attributes['css'] ?? ''}}">
+    {{$slot}}
 </div>

@@ -6,8 +6,14 @@ namespace Drystack;
 
 use Drystack\Commands\PublishCommand;
 use Drystack\Commands\SetupCommand;
+use Drystack\Components\Form\Datetime;
+use Drystack\Components\Layout\Card;
+use Drystack\Components\Layout\Center;
 use Drystack\Components\Layout\Column;
-use Drystack\Components\Nav\Link;
+use Drystack\Components\Form\Form;
+use Drystack\Components\Form\Input;
+use Drystack\Components\Nav\NavGroup;
+use Drystack\Components\Nav\NavLink;
 use Drystack\Components\Layout\Row;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
@@ -39,8 +45,17 @@ class ComponentsServiceProvider extends ServiceProvider {
             ], 'drystack-assets');
         }
 
+        Blade::component(Row::class, 'row', 'dry');
         Blade::component(Column::class, 'column', 'dry');
-        Blade::component(Link::class, 'nav-link', 'dry');
+        Blade::component(Center::class, 'center', 'dry');
+        Blade::component(Card::class, 'card', 'dry');
+
+        Blade::component(NavLink::class, 'nav-link', 'dry');
+        Blade::component(NavGroup::class, 'nav-group', 'dry');
+
+        Blade::component(Form::class, 'form', 'dry');
+        Blade::component(Input::class, 'input', 'dry');
+        Blade::component(Datetime::class, 'datetime', 'dry');
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'drystack');
     }
