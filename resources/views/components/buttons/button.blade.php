@@ -30,6 +30,9 @@
     @php($class = $base . " bg-transparent text-$text bg-$bg-500 border-$bg-500 hover:border-$bg-600 hover:bg-$bg-600")
 @endif
 
+@if(isset($attributes['custom']))
+    @php($class = "")
+@endif
 
 @if(isset($attributes['type']))
     @php($tag = 'button')
