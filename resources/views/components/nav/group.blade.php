@@ -1,14 +1,14 @@
 <div x-data="{ open: false, active: 0 }" @open-group="open = $event.detail.open" x-init="$watch('open', value => console.log(value))">
     <div
         @click="open = !open"
-        :class="active == 1 ? 'text-primary-50 bg-primary-800 ' : 'text-primary-50'"
+        :class="active == 1 ? 'text-white bg-primary-800 ' : 'text-primary-50'"
         class="flex justify-between items-center p-2 mt-2 rounded cursor-pointer hover:bg-primary-700 hover:text-primary-50"
     >
         <div>
             @if(isset($attributes['icon']))
                 <i class="{{$attributes['icon']}}"></i>
             @endif
-            <span class="ml-2">
+            <span class="{{ isset($attributes['icon']) ? 'ml-2' : '' }}">
             {{$attributes['title'] ?? ''}}
         </span>
         </div>

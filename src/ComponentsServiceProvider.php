@@ -16,9 +16,12 @@ use Drystack\Components\Forms\Form;
 use Drystack\Components\Forms\Input;
 use Drystack\Components\Layouts\Modal;
 use Drystack\Components\Layouts\Tabs;
+use Drystack\Components\Navs\NavDropdown;
+use Drystack\Components\Navs\NavDropdownLink;
 use Drystack\Components\Navs\NavGroup;
 use Drystack\Components\Navs\NavLink;
 use Drystack\Components\Layouts\Row;
+use Drystack\Components\Notifications\Notification;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -57,6 +60,10 @@ class ComponentsServiceProvider extends ServiceProvider {
 
         Blade::component(NavLink::class, 'nav-link', 'dry');
         Blade::component(NavGroup::class, 'nav-group', 'dry');
+        Blade::component(NavDropdown::class, 'nav-dropdown', 'dry');
+        Blade::component(NavDropdownLink::class, 'nav-dropdown-link', 'dry');
+
+        Blade::component(Notification::class, 'notification', 'dry');
 
         Blade::component(Form::class, 'form', 'dry');
         Blade::component(Input::class, 'input', 'dry');

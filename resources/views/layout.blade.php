@@ -17,7 +17,7 @@
     @include('drystack::menu')
 
     <section class="w-full px-8 py-6 font-sans overflow-y-scroll">
-        <h2 class="font-sans text-gray-700 text-2xl mb-8 text-opacity-80">{{ $title ?? ''}}</h2>
+        <h2 class="font-sans text-gray-700 text-2xl mb-8 text-opacity-80 max-w-screen-xl mx-auto">{{ $title ?? ''}}</h2>
         {{ $slot }}
     </section>
 

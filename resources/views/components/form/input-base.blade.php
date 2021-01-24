@@ -1,7 +1,7 @@
 <div class="antialiased sans-serif container">
     <div class="relative">
         <input
-                {{ $attributes['field'] ? 'wire:model='.$attributes["field"] : '' }}
+                {{ $attributes['field'] ? 'wire:model.debounce.500ms='.$attributes["field"] : '' }}
                 {{ $attributes->merge(['class' => 'w-full pl-4 pr-10 py-3 rounded-lg leading-none bg-neutral-100 focus:shadow-inner focus:outline-none']) }}
         />
 
