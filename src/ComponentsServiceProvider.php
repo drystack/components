@@ -51,6 +51,13 @@ class ComponentsServiceProvider extends ServiceProvider {
             ], 'drystack-assets');
         }
 
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'drystack');
+
+        //Blade::component('drystack::components.nav.link', 'nav-link');
+        Blade::components([
+            'drystack::components.nav.link' => 'nav-link'
+        ], 'd');
+
         Blade::component(Row::class, 'row', 'dry');
         Blade::component(Column::class, 'column', 'dry');
         Blade::component(Center::class, 'center', 'dry');
@@ -58,7 +65,7 @@ class ComponentsServiceProvider extends ServiceProvider {
         Blade::component(Tabs::class, 'tabs', 'dry');
         Blade::component(Modal::class, 'modal', 'dry');
 
-        Blade::component(NavLink::class, 'nav-link', 'dry');
+        //Blade::component(NavLink::class, 'nav-link', 'dry');
         Blade::component(NavGroup::class, 'nav-group', 'dry');
         Blade::component(NavDropdown::class, 'nav-dropdown', 'dry');
         Blade::component(NavDropdownLink::class, 'nav-dropdown-link', 'dry');
@@ -72,6 +79,6 @@ class ComponentsServiceProvider extends ServiceProvider {
 
         Blade::component(Button::class, 'button', 'dry');
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'drystack');
+
     }
 }

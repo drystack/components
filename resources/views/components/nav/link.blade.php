@@ -1,19 +1,11 @@
+@props(['route'])
 @php
-    if (!isset($attributes['custom'])) {
-        $class = (Route::is($attributes['route']) ? 'text-white bg-primary-800 ' : 'text-primary-200')
-                . " block p-2 mt-2 rounded cursor-pointer hover:bg-primary-700 hover:text-primary-200";
-    } else {
-        $class = "";
-    }
+    $class = (Route::is($route) ? 'text-white bg-primary-800 ' : 'text-primary-200'). " block p-2 mt-2 rounded cursor-pointer hover:bg-primary-700 hover:text-primary-200";
 @endphp
 
-<a href="{{route($attributes['route'])}}" {{ $attributes->merge(['class' => $class]) }}
-   x-data=""
-   x-init="() => {
-        if ('{{Route::is($attributes['route'])}}' === '1')
-            $dispatch('open-group', {open: true})
-   }"
->
+<a href="{{route($route)}}" {{ $attributes->merge(['class' => $class]) }}
+   x-data
+   x-init="'{{Route::is($route)}}' === '1' && $dispatch('open-group', {open: true})">
     @if(isset($attributes['icon']))
         <i class="{{$attributes['icon']}}"></i>
     @endif

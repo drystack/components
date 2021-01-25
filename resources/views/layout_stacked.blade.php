@@ -25,15 +25,15 @@
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
                             <!-- Current: "bg-neutral-900 text-white", Default: "text-neutral-300 hover:bg-neutral-700 hover:text-white" -->
-                            <x-dry-nav-link route="user.index" class="px-3 py-2 rounded-md">
+                            <x-d-nav-link route="user.index" class="px-3 py-2 rounded-md">
                                 Users
-                            </x-dry-nav-link>
-                            <x-dry-nav-dropdown title="Dropdown">
-                                <x-dry-nav-dropdown-link>Prova</x-dry-nav-dropdown-link>
-                                <x-dry-nav-dropdown-link>Prova 2</x-dry-nav-dropdown-link>
-                                <x-dry-nav-dropdown-link>Prova 3</x-dry-nav-dropdown-link>
-                                <x-dry-nav-dropdown-link>Prova 4</x-dry-nav-dropdown-link>
-                            </x-dry-nav-dropdown>
+                            </x-d-nav-link>
+                            <x-nav-dropdown title="Dropdown">
+                                <x-nav-dropdown-link>Prova</x-nav-dropdown-link>
+                                <x-nav-dropdown-link>Prova 2</x-nav-dropdown-link>
+                                <x-nav-dropdown-link>Prova 3</x-nav-dropdown-link>
+                                <x-nav-dropdown-link>Prova 4</x-nav-dropdown-link>
+                            </x-nav-dropdown>
                         </div>
                     </div>
                 </div>
