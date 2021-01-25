@@ -1,3 +1,9 @@
+@props(['stacked'])
+
+@if($stacked)
+    @include('drystack::components.nav.dropdown', ['attributes' => $attributes])
+@else
+
 <div x-data="{ open: false, active: 0 }" @open-group="open = $event.detail.open" x-init="$watch('open', value => console.log(value))">
     <div
         @click="open = !open"
@@ -29,3 +35,5 @@
     </div>
 
 </div>
+
+@endif

@@ -26,7 +26,9 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class ComponentsServiceProvider extends ServiceProvider {
-    public function register() {}
+    public function register() {
+        $this->mergeConfigFrom(__DIR__.'/../config/drystack.php', 'drystack');
+    }
 
     public function boot() {
 
@@ -35,6 +37,9 @@ class ComponentsServiceProvider extends ServiceProvider {
                 SetupCommand::class,
                 PublishCommand::class,
             ]);
+            $this->publishes([
+                __DIR__.'/../config/drystack.php' => config_path('drystack.php'),
+            ], 'drystack-config');
             $this->publishes([
                 __DIR__ . '/../resources/views/menu.blade.php' => resource_path('views/vendor/drystack/menu.blade.php'),
             ], 'drystack-menu');
@@ -53,32 +58,26 @@ class ComponentsServiceProvider extends ServiceProvider {
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'drystack');
 
-        //Blade::component('drystack::components.nav.link', 'nav-link');
         Blade::components([
-            'drystack::components.nav.link' => 'nav-link'
-        ], 'd');
-
-        Blade::component(Row::class, 'row', 'dry');
-        Blade::component(Column::class, 'column', 'dry');
-        Blade::component(Center::class, 'center', 'dry');
-        Blade::component(Card::class, 'card', 'dry');
-        Blade::component(Tabs::class, 'tabs', 'dry');
-        Blade::component(Modal::class, 'modal', 'dry');
-
-        //Blade::component(NavLink::class, 'nav-link', 'dry');
-        Blade::component(NavGroup::class, 'nav-group', 'dry');
-        Blade::component(NavDropdown::class, 'nav-dropdown', 'dry');
-        Blade::component(NavDropdownLink::class, 'nav-dropdown-link', 'dry');
-
-        Blade::component(Notification::class, 'notification', 'dry');
-
-        Blade::component(Form::class, 'form', 'dry');
-        Blade::component(Input::class, 'input', 'dry');
-        Blade::component(InputBase::class, 'input-base', 'dry');
-        Blade::component(Datetime::class, 'datetime', 'dry');
-
-        Blade::component(Button::class, 'button', 'dry');
-
-
+            'drystack::components.layout.row' => 'row',
+            'drystack::components.layout.column' => 'column',
+            'drystack::components.layout.center' => 'center',
+            'drystack::components.layout.card' => 'card',
+            'drystack::components.layout.modal' => 'modal',
+            'drystack::components.layout.tabs' => 'tabs',
+            'drystack::components.nav.link' => 'nav-link',
+            'drystack::components.nav.group' => 'nav-group',
+            'drystack::components.nav.dropdown' => 'dropdown',
+            'drystack::components.nav.dropdown-link' => 'dropdown-link',
+            'drystack::components.notification.notification' => 'notification',
+            'drystack::components.form.form' => 'form',
+            'drystack::components.form.input' => 'input',
+            'drystack::components.form.input-base' => 'input-base',
+            'drystack::components.form.datetime' => 'datetime',
+            'drystack::components.button.button' => 'button',
+            'drystack::components.button.link' => 'button-link',
+            'drystack::components.text.title' => 'title',
+            'drystack::components.text.link' => 'link',
+        ]);
     }
 }

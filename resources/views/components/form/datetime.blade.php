@@ -1,9 +1,9 @@
-<div class="antialiased sans-serif container  mb-2">
+<div class="antialiased container  mb-2">
     <div x-data="datepicker.init()" x-init="[initDate('{{ 'dt-' . $attributes['field'] }}'), getNoOfDays()]" x-cloak>
 
         <div class="relative">
             <input type="hidden" name="{{ $attributes['field'] }}" x-ref="dt-{{ $attributes['field'] }}">
-            <x-dry-input
+            <x-input
                     type="text"
                     readonly
                     x-model="datepickerValue"

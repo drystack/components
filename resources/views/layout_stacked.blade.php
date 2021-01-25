@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,27 +19,19 @@
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
-                        <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                             alt="Workflow">
+                        @if(config('drystack.logo') != null)
+                            <img class="h-8" src="{{config('drystack.logo')}}">
+                        @endif
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
-                            <!-- Current: "bg-neutral-900 text-white", Default: "text-neutral-300 hover:bg-neutral-700 hover:text-white" -->
-                            <x-d-nav-link route="user.index" class="px-3 py-2 rounded-md">
-                                Users
-                            </x-d-nav-link>
-                            <x-nav-dropdown title="Dropdown">
-                                <x-nav-dropdown-link>Prova</x-nav-dropdown-link>
-                                <x-nav-dropdown-link>Prova 2</x-nav-dropdown-link>
-                                <x-nav-dropdown-link>Prova 3</x-nav-dropdown-link>
-                                <x-nav-dropdown-link>Prova 4</x-nav-dropdown-link>
-                            </x-nav-dropdown>
+                            @include('drystack::menu', ['stacked' => true])
                         </div>
                     </div>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-4 flex items-center md:ml-6">
-                        <x-dry-nav-dropdown>
+                        <x-dropdown>
                             <x-slot name="trigger">
                                 <div class="ml-t">
                                     <button class="max-w-xs bg-neutral-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-800 focus:ring-white"
@@ -51,8 +43,8 @@
                                     </button>
                                 </div>
                             </x-slot>
-                            <x-dry-nav-dropdown-link>Prova</x-dry-nav-dropdown-link>
-                        </x-dry-nav-dropdown>
+                            <x-dropdown-link>Prova</x-dropdown-link>
+                        </x-dropdown>
                     </div>
                 </div>
                 <div class="-mr-2 flex md:hidden">
@@ -147,8 +139,9 @@
     <header>
         <div class="max-w-7xl mx-auto py-4 pt-6 pb-2 sm:px-6 lg:px-8">
             <h1 class="text-3xl font-bold leading-tight text-neutral-900">
-                Dashboard
+                {{ __($title) ?? 'Dashboard' }}
             </h1>
+            {{ $action ?? '' }}
         </div>
     </header>
     <main>

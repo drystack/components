@@ -1,4 +1,4 @@
-<div class="antialiased sans-serif container">
+<div class="antialiased container">
     <div class="relative">
         <input
                 {{ $attributes['field'] ? 'wire:model.debounce.500ms='.$attributes["field"] : '' }}

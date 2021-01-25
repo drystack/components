@@ -17,8 +17,12 @@ module.exports = {
         success: colors.green,
         alert: colors.red,
         warning: colors.yellow,
+      },
+      fontFamily: {
+        'sans': 'Arial, Helvetica, sans-serif'
       }
     }
+
   },
   variants: {
     extend: {},

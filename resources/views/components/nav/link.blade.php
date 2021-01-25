@@ -1,4 +1,9 @@
-@props(['route'])
+@props(['route', 'stacked' => false])
+
+@if($stacked)
+    @include('drystack::components.nav.dropdown-link', ['attributes' => $attributes])
+@else
+
 @php
     $class = (Route::is($route) ? 'text-white bg-primary-800 ' : 'text-primary-200'). " block p-2 mt-2 rounded cursor-pointer hover:bg-primary-700 hover:text-primary-200";
 @endphp
@@ -13,3 +18,5 @@
         {{$slot}}
     </span>
 </a>
+
+@endif

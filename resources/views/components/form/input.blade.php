@@ -1,4 +1,4 @@
-<div class="antialiased sans-serif container">
+<div class="antialiased container">
     <label class="font-semibold mb-1 text-neutral-700 block">{{ $attributes['label'] ?? '' }}</label>
     <div class="relative">
         <input
