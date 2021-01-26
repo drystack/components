@@ -38,6 +38,9 @@ class ComponentsServiceProvider extends ServiceProvider {
                 PublishCommand::class,
             ]);
             $this->publishes([
+                __DIR__.'/../resources/lang' => resource_path('lang/vendor/drystack'),
+            ], 'drystack-lang');
+            $this->publishes([
                 __DIR__.'/../config/drystack.php' => config_path('drystack.php'),
             ], 'drystack-config');
             $this->publishes([
@@ -56,6 +59,7 @@ class ComponentsServiceProvider extends ServiceProvider {
             ], 'drystack-assets');
         }
 
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'drystack');
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'drystack');
 
         Blade::components([
