@@ -26,9 +26,7 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class ComponentsServiceProvider extends ServiceProvider {
-    public function register() {
-        $this->mergeConfigFrom(__DIR__.'/../config/drystack.php', 'drystack');
-    }
+    public function register() {}
 
     public function boot() {
 
@@ -37,12 +35,6 @@ class ComponentsServiceProvider extends ServiceProvider {
                 SetupCommand::class,
                 PublishCommand::class,
             ]);
-            $this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/drystack'),
-            ], 'drystack-lang');
-            $this->publishes([
-                __DIR__.'/../config/drystack.php' => config_path('drystack.php'),
-            ], 'drystack-config');
             $this->publishes([
                 __DIR__ . '/../resources/views/menu.blade.php' => resource_path('views/vendor/drystack/menu.blade.php'),
             ], 'drystack-menu');
