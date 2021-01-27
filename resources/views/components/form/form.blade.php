@@ -8,8 +8,8 @@
         {{ $actions }}
     @else
         <x-row class="justify-end mt-6">
-            <x-button color="neutral" style="text" type="reset">Annulla</x-button>
-            <x-button type="submit">{{ $attributes['send-text'] ?? 'Invia' }}</x-button>
+            <x-button color="neutral" style="text" type="reset">{{__('Cancel')}}</x-button>
+            <x-button type="submit">{{ $attributes['send-text'] ?? __('Send') }}</x-button>
         </x-row>
     @endif
 </form>
