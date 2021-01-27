@@ -37,9 +37,9 @@
                     <div>
                         <x-column class="items-start">
                             <h3>{{ Auth::user()->name ?? '-' }}</h3>
-                            <x-button custom class="text-white cursor-pointer  hover:underline">
+                            <x-link href="{{route('logout')}}" class="text-white cursor-pointer">
                                 <span class="hover:underline">Logout</span>
-                            </x-button>
+                            </x-link>
                         </x-column>
                     </div>
                 </div>
