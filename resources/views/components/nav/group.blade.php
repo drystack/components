@@ -10,16 +10,16 @@
         :class="active == 1 ? 'text-white bg-primary-800 ' : 'text-primary-50'"
         class="flex justify-between items-center p-2 mt-2 rounded cursor-pointer hover:bg-primary-700 hover:text-primary-50"
     >
-        <div>
+        <div class="flex gap-2 items-center">
             @if(isset($icon))
                 {{ $icon }}
             @endif
             <span class="{{ isset($attributes['icon']) ? 'ml-2' : '' }}">
-            {{$attributes['title'] ?? ''}}
-        </span>
+                {{$attributes['title'] ?? ''}}
+            </span>
         </div>
         <div>
-            <i class="fas fa-chevron-down float-right" :class="open === true ? 'transform rotate-180' : ''"></i>
+            <svg class="w-6 h-6 float-right" :class="open === true ? 'transform rotate-180' : ''"> fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </div>
     </div>
     <div

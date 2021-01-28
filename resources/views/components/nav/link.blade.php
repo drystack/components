@@ -5,7 +5,7 @@
 @else
 
 @php
-    $class = (Route::is($route) ? 'text-white bg-primary-800 ' : 'text-primary-200'). " block p-2 mt-2 rounded cursor-pointer hover:bg-primary-700 hover:text-primary-200";
+    $class = (Route::is($route) ? 'text-white bg-primary-800 ' : 'text-primary-200'). " flex gap-2 items-center p-2 mt-2 rounded cursor-pointer hover:bg-primary-700 hover:text-primary-200";
 @endphp
 
 <a href="{{route($route)}}" {{ $attributes->merge(['class' => $class]) }}
