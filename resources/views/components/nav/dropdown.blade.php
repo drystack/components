@@ -1,3 +1,4 @@
+@props(['icon' => null])
 <div class="ml-3 relative" x-cloak x-data="{ open: false, active: 0, hover: false }" @open-group="open = $event.detail.open" @mouseover.away = "open = false">
     <div @mouseenter="open = true">
         {{ $trigger ?? '' }}
@@ -12,8 +13,8 @@
                 class="flex justify-between items-center p-2 mt-2 rounded cursor-pointer hover:bg-primary-700 hover:text-primary-50"
         >
             <div>
-                @if(isset($attributes['icon']))
-                    <i class="{{$attributes['icon']}}"></i>
+                @if(isset($icon))
+                    {{ $icon }}
                 @endif
                 <span class="{{ isset($attributes['icon']) ? 'ml-2' : '' }}">
                 {{$attributes['title'] ?? ''}}

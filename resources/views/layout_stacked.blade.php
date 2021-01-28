@@ -9,8 +9,6 @@
     @livewireStyles
     <link href="{{mix('/css/components.css', '/drystack')}}" rel="stylesheet">
     <script src="{{mix('/js/components.js', '/drystack')}}" defer></script>
-    <script src="https://kit.fontawesome.com/940802e517.js" crossorigin="anonymous"></script>
-
 </head>
 <body class="bg-neutral-100">
 <div>

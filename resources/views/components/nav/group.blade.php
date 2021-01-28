@@ -1,7 +1,7 @@
-@props(['stacked'])
+@props(['stacked', 'icon' => null])
 
 @if($stacked)
-    @include('drystack::components.nav.dropdown', ['attributes' => $attributes])
+    @include('drystack::components.nav.dropdown', ['attributes' => $attributes, 'icon' => $icon])
 @else
 
 <div x-data="{ open: false, active: 0 }" @open-group="open = $event.detail.open" x-init="$watch('open', value => console.log(value))">
@@ -11,8 +11,8 @@
         class="flex justify-between items-center p-2 mt-2 rounded cursor-pointer hover:bg-primary-700 hover:text-primary-50"
     >
         <div>
-            @if(isset($attributes['icon']))
-                <i class="{{$attributes['icon']}}"></i>
+            @if(isset($icon))
+                {{ $icon }}
             @endif
             <span class="{{ isset($attributes['icon']) ? 'ml-2' : '' }}">
             {{$attributes['title'] ?? ''}}

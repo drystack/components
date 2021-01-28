@@ -1,4 +1,4 @@
-@props(['route', 'stacked' => false])
+@props(['route', 'stacked' => false, 'icon' => null])
 
 @if($stacked)
     @include('drystack::components.nav.dropdown-link', ['attributes' => $attributes])
@@ -11,8 +11,8 @@
 <a href="{{route($route)}}" {{ $attributes->merge(['class' => $class]) }}
    x-data
    x-init="'{{Route::is($route)}}' === '1' && $dispatch('open-group', {open: true})">
-    @if(isset($attributes['icon']))
-        <i class="{{$attributes['icon']}}"></i>
+    @if(isset($icon))
+        {{ $icon }}
     @endif
     <span class="{{ isset($attributes['icon']) ? 'ml-2' : ''}}">
         {{$slot}}

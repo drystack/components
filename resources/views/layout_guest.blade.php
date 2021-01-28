@@ -9,8 +9,6 @@
     @livewireStyles
     <link href="{{mix('/css/components.css', '/drystack')}}" rel="stylesheet">
     <script src="{{mix('/js/components.js', '/drystack')}}" defer></script>
-    <script src="https://kit.fontawesome.com/940802e517.js" crossorigin="anonymous"></script>
-
 </head>
 <body>
 <div class="min-h-screen flex items-center justify-center bg-neutral-50 py-12 px-4 sm:px-6 lg:px-8">

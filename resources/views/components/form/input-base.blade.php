@@ -1,3 +1,6 @@
+@props([
+'icon' => null
+])
 <div class="antialiased container">
     <div class="relative">
         <input
@@ -5,9 +8,9 @@
                 {{ $attributes->merge(['class' => 'w-full pl-4 pr-10 py-3 rounded-lg leading-none bg-neutral-100 focus:shadow-inner focus:outline-none']) }}
         />
 
-        @if(isset($attributes['icon']))
+        @if(isset($icon))
             <div class="absolute top-0 right-0 px-3 py-2">
-                <i class="{{ $attributes['icon'] }} text-neutral-400"></i>
+                {{ $icon }}
             </div>
         @endif
     </div>
