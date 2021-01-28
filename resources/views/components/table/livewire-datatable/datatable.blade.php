@@ -33,7 +33,7 @@
                     <div x-data="{ init() {
                     window.livewire.on('startDownload', link => window.open(link,'_blank'))
                 } }" x-init="init">
-                        <x-button color="success" style="outline" wire:click="export">
+                        <x-button color="success" format="outline" wire:click="export">
                             <span class="flex flex-row items-center gap-2">EXPORT <x-icons.excel /></span>
                         </x-button>
                     </div>
