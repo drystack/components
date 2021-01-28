@@ -68,12 +68,15 @@ class ComponentsServiceProvider extends ServiceProvider {
             'drystack::components.nav.dropdown-link' => 'dropdown-link',
             'drystack::components.notification.notification' => 'notification',
             'drystack::components.form.form' => 'form',
+            'drystack::components.form.label' => 'label',
             'drystack::components.form.input' => 'input',
             'drystack::components.form.input-base' => 'input-base',
             'drystack::components.form.datetime' => 'datetime',
+            'drystack::components.form.checkbox' => 'checkbox',
             'drystack::components.button.button' => 'button',
             'drystack::components.button.link' => 'button-link',
             'drystack::components.text.title' => 'title',
+            'drystack::components.text.section-title' => 'section-title',
             'drystack::components.text.link' => 'link',
         ]);
     }

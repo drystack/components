@@ -2,7 +2,7 @@
     'icon' => null
 ])
 <div class="antialiased container">
-    <label class="font-semibold mb-1 text-neutral-700 block">{{ $attributes['label'] ?? '' }}</label>
+    <x-label class="mb-1">{{ $attributes['label'] ?? '' }}</x-label>
     <div class="relative">
         <input
                 {{ $attributes['field'] ? 'wire:model.debounce.500ms='.$attributes["field"] : '' }}

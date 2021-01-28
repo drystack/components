@@ -22,7 +22,8 @@ class PublishCommand extends Command {
             "alpinejs" => "^2.8.0",
             "autoprefixer" => "^10.2.1",
             "postcss" => "^8.2.4",
-            "tailwindcss" => "^2.0.2"
+            "tailwindcss" => "^2.0.2",
+            "@tailwindcss/forms" => "^0.2.1"
         ]);
 
         $this->addMixConfigurations([
