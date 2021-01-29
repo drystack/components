@@ -30,13 +30,13 @@
             </div>
             <div class="flex p-3 text-white text-center text-sm">
                 <div class="flex flex-row gap-4 text-white items-center">
-                    <div class="flex justify-center items-center rounded-full h-16 w-16 text-3xl bg-primary-800 p-1">
+                    <div class="flex justify-center shadow-inner uppercase items-center rounded-full h-16 w-16 text-3xl bg-primary-800 p-1">
                         {{ Drystack\Helpers\StringHelper::initials(Auth::user()->name ?? '') }}
                     </div>
                     <div>
                         <x-column class="items-start">
                             <x-link href="{{route('profile')}}" class="text-white cursor-pointer">
-                                <span class="hover:underline">{{ Auth::user()->name ?? '-' }}</span>
+                                <span class="hover:underline tracking-widest uppercase text-xs">{{ Auth::user()->name ?? '-' }}</span>
                             </x-link>
                             <x-link href="{{route('logout')}}" class="text-secondary-200 cursor-pointer">
                                 <span class="hover:underline">Logout</span>
