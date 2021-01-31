@@ -73,6 +73,7 @@ class ComponentsServiceProvider extends ServiceProvider {
             'drystack::components.form.input-base' => 'input-base',
             'drystack::components.form.datetime' => 'datetime',
             'drystack::components.form.checkbox' => 'checkbox',
+            'drystack::components.form.select' => 'select',
             'drystack::components.button.button' => 'button',
             'drystack::components.button.link' => 'button-link',
             'drystack::components.text.title' => 'title',
