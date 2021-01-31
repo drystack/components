@@ -6,7 +6,7 @@
             "email": "info@lorenzocattaneo.com"
         }
     ],
-    "license": "GNU AGPLv3",
+    "license": "AGPL-3.0-only",
     "require": {
         "php": ">=7.4",
         "illuminate/contracts": "^8.0",
