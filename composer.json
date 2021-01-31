@@ -6,6 +6,7 @@
             "email": "info@lorenzocattaneo.com"
         }
     ],
+    "license": "GNU AGPLv3",
     "require": {
         "php": ">=7.4",
         "illuminate/contracts": "^8.0",
@@ -17,6 +18,12 @@
             "Drystack\\": "src"
         }
     },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
     "extra": {
         "laravel": {
             "providers": [
