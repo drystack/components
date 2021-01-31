@@ -8,7 +8,7 @@
     <div
         @click="open = !open"
         :class="active == 1 ? 'text-white bg-primary-800 ' : 'text-primary-50'"
-        class="flex justify-between items-center p-2 mt-2 rounded cursor-pointer hover:bg-primary-700 hover:text-primary-50"
+        class="flex justify-between items-center p-2 mt-2 rounded cursor-pointer hover:bg-primary-600 hover:text-primary-50"
     >
         <div class="flex gap-2 items-center">
             @if(isset($icon))

@@ -14,7 +14,7 @@
 
 <main class="flex w-full h-screen">
     <aside class="w-80 h-screen shadow-md hidden sm:block">
-        <div class="flex flex-col justify-between h-screen p-4 bg-primary-600">
+        <div class="flex flex-col justify-between h-screen p-4 bg-primary-700">
             <div>
                 <x-row class="justify-start gap-4 items-center">
                     @if(config('drystack.logo') != null)

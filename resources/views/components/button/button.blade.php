@@ -10,7 +10,7 @@
 @elseif($format == 'text')
     @php($class = $base . " bg-transparent text-$color-500 font-normal underline hover:text-$color-600 focus:outline-none")
 @else
-    @php($class = $base . " shadow bg-transparent text-white bg-$color-500 border-$color-500 hover:border-$color-600 hover:bg-$color-600")
+    @php($class = $base . " shadow bg-transparent text-white bg-$color-700 border-$color-500 hover:border-$color-600 hover:bg-$color-600")
 @endif
 
 @if(isset($custom))
