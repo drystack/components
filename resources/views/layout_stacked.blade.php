@@ -35,7 +35,7 @@
                                     <button class="w-10 h-10 text-primary-50 items-center justify-center uppercase max-w-xs bg-primary-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-800 focus:ring-white"
                                             id="user-menu" aria-haspopup="true">
                                         <span class="sr-only">Open user menu</span>
-                                        {{ Drystack\Helpers\StringHelper::initials(Auth::user()->name ?? '') }}
+                                        {{ Drystack\Components\Helpers\StringHelper::initials(Auth::user()->name ?? '') }}
                                     </button>
                                 </div>
                             </x-slot>

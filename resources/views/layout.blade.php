@@ -31,7 +31,7 @@
             <div class="flex p-3 text-white text-center text-sm">
                 <div class="flex flex-row gap-4 text-white items-center">
                     <div class="flex justify-center shadow-inner uppercase items-center rounded-full h-16 w-16 text-3xl bg-primary-800 p-1">
-                        {{ Drystack\Helpers\StringHelper::initials(Auth::user()->name ?? '') }}
+                        {{ Drystack\Components\Helpers\StringHelper::initials(Auth::user()->name ?? '') }}
                     </div>
                     <div>
                         <x-column class="items-start">
