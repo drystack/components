@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Drystack;
+namespace Drystack\Components;
 
 
 use Drystack\Commands\PublishCommand;

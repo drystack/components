@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Drystack\\": "src"
+            "Drystack\\Components\\": "src"
         }
     },
     "config": {
@@ -27,7 +27,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Drystack\\ComponentsServiceProvider"
+                "Drystack\\Components\\ComponentsServiceProvider"
             ]
         }
     }

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Drystack\Helpers;
+namespace Drystack\Components\Helpers;
 
 
 class StringHelper {
