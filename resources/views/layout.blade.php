@@ -18,7 +18,7 @@
             <div>
                 <x-row class="justify-start gap-4 items-center">
                     @if(config('drystack.logo') != null)
-                        <img class="h-12" src="{{config('drystack.logo')}}">
+                        <img class="h-12" src="{{asset(config('drystack.logo'))}}">
                     @endif
                     @if(config('drystack.company_name') != null)
                         <span class="text-2xl text-white">{{config('drystack.company_name')}}</span>

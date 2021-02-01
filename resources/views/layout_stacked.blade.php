@@ -18,7 +18,7 @@
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
                         @if(config('drystack.logo') != null)
-                            <img class="h-8" src="{{config('drystack.logo')}}">
+                            <img class="h-8" src="{{asset(config('drystack.logo'))}}">
                         @endif
                     </div>
                     <div class="hidden md:block">
