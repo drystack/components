@@ -15,7 +15,7 @@ export function init() {
         max: '', //Set in format yyyy-mm-dd
         min: '', //Set in format yyyy-mm-dd
 
-        options: { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' },
+        options: {weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'},
 
         initDate(ref_name, max, min) {
             this.ref_name = ref_name;
@@ -67,12 +67,12 @@ export function init() {
         },
 
         prevMonth() {
-          if (this.month > 0) {
-              this.month--;
-          } else {
-              this.month = 11;
-              this.year--;
-          }
+            if (this.month > 0) {
+                this.month--;
+            } else {
+                this.month = 11;
+                this.year--;
+            }
         },
 
         nextMonth() {
@@ -82,6 +82,14 @@ export function init() {
                 this.month = 0;
                 this.year++;
             }
+        },
+
+        prevYear() {
+            this.year--;
+        },
+
+        nextYear() {
+            this.year++;
         },
 
         isMinDate() {

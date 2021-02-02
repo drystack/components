@@ -2,7 +2,8 @@
     <div x-data="datepicker.init()" x-init="[initDate('{{ 'dt-' . $attributes['field'] }}'), getNoOfDays()]" x-cloak>
 
         <div class="relative">
-            <input type="hidden" name="{{ $attributes['field'] }}" x-ref="dt-{{ $attributes['field'] }}" wire:model="{{ $attributes['field'] }}">
+
+            <input type="hidden" name="{{ $attributes['field'] }}" x-ref="dt-{{ $attributes['field'] }}">
             <x-input
                     type="text"
                     readonly
@@ -10,7 +11,8 @@
                     @click="showDatepicker = !showDatepicker"
                     @keydown.escape="showDatepicker = false"
                     placeholder="Seleziona data"
-                    {{ $attributes }}
+                    field="{{ $attributes['field'] ?? ''}}"
+                    label="{{ $attributes['label'] ?? ''}}"
             />
 
             <div
@@ -19,35 +21,54 @@
                     x-show.transition="showDatepicker"
                     @click.away="showDatepicker = false">
 
-                <div class="flex justify-between items-center mb-2">
-                    <div>
-                        <span x-text="datepicker.MONTH_NAMES[month]" class="text-lg font-bold text-neutral-800"></span>
-                        <span x-text="year" class="ml-1 text-lg text-neutral-600 font-normal"></span>
-                    </div>
-                    <div>
+                <div class="flex flex-col items-center mb-2">
+                    <div class="flex w-full justify-between items-center">
                         <button
-                                type="button"
-                                class="transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-neutral-200 p-1 rounded"
-                                :class="{'cursor-not-allowed opacity-25': isMinDate() }"
-                                :disabled="isMinDate() ? true : false"
-                                @click="prevMonth(); getNoOfDays()">
-                            <svg class="h-6 w-6 text-neutral-500 inline-flex" fill="none" viewBox="0 0 24 24"
+                            type="button"
+                            class="transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-neutral-200 p-1 rounded"
+                            :class="{'cursor-not-allowed opacity-25': isMinDate() }"
+                            :disabled="isMinDate() ? true : false"
+                            @click="prevMonth(); getNoOfDays()">
+                            <svg class="h-5 w-5 text-neutral-500 inline-flex" fill="none" viewBox="0 0 24 24"
                                  stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                       d="M15 19l-7-7 7-7"/>
                             </svg>
                         </button>
+                        <span x-text="datepicker.MONTH_NAMES[month]" class="text-lg font-bold text-neutral-800"></span>
+
                         <button
-                                type="button"
-                                class="transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-neutral-200 p-1 rounded"
-                                :class="{'cursor-not-allowed opacity-25': isMaxDate() }"
-                                :disabled="isMaxDate() ? true : false"
-                                @click="nextMonth(); getNoOfDays()">
-                            <svg class="h-6 w-6 text-neutral-500 inline-flex" fill="none" viewBox="0 0 24 24"
+                            type="button"
+                            class="transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-neutral-200 p-1 rounded"
+                            :class="{'cursor-not-allowed opacity-25': isMaxDate() }"
+                            :disabled="isMaxDate() ? true : false"
+                            @click="nextMonth(); getNoOfDays()">
+                            <svg class="h-5 w-5 text-neutral-500 inline-flex" fill="none" viewBox="0 0 24 24"
                                  stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                       d="M9 5l7 7-7 7"/>
                             </svg>
+                        </button>
+                    </div>
+                    <div class="flex w-full justify-between items-center">
+                        <button
+                            type="button"
+                            class="transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-neutral-200 p-1 rounded"
+                            :class="{'cursor-not-allowed opacity-25': isMinDate() }"
+                            :disabled="isMinDate() ? true : false"
+                            @click="prevYear(); getNoOfDays()">
+                            <svg class="w-4 h-4 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7"></path></svg>
+                        </button>
+
+                        <span x-text="year" class="ml-1 text-lg text-neutral-600 font-normal"></span>
+
+                        <button
+                            type="button"
+                            class="transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-neutral-200 p-1 rounded"
+                            :class="{'cursor-not-allowed opacity-25': isMaxDate() }"
+                            :disabled="isMaxDate() ? true : false"
+                            @click="nextYear(); getNoOfDays()">
+                            <svg class="w-4 h-4 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg>
                         </button>
                     </div>
                 </div>
@@ -72,11 +93,7 @@
                     <template x-for="(date, dateIndex) in no_of_days" :key="dateIndex">
                         <div style="width: 14.28%" class="px-1 mb-1">
                             <div
-                                    @click="
-                                    getDateValue(date);
-                                    let element = document.getElementById('{{ $attributes['field'] }}');
-                                    element.dispatchEvent(new Event('input'));
-                                    "
+                                    @click="getDateValue(date)"
                                     x-text="date"
                                     class="cursor-pointer text-center text-sm leading-none rounded leading-loose transition ease-in-out duration-100"
                                     :class="{'bg-blue-500 text-white': isToday(date) == true, 'text-neutral-700 hover:bg-blue-200': isToday(date) == false }"

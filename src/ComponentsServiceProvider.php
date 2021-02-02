@@ -43,6 +43,7 @@ class ComponentsServiceProvider extends ServiceProvider {
             'drystack::components.layout.column' => 'column',
             'drystack::components.layout.center' => 'center',
             'drystack::components.layout.container' => 'container',
+            'drystack::components.layout.grid' => 'grid',
             'drystack::components.layout.card' => 'card',
             'drystack::components.layout.modal' => 'modal',
             'drystack::components.layout.tabs' => 'tabs',

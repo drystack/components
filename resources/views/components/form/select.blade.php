@@ -27,7 +27,7 @@
         From: "opacity-100"
         To: "opacity-0"
     -->
-    <div x-show="open" class="absolute mt-1 w-full rounded-md bg-white shadow-lg">
+    <div x-show="open" class="absolute mt-1 w-full rounded-md bg-white shadow-lg z-40">
         <ul tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-item-3"
             class="max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
 
