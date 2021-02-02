@@ -2,7 +2,7 @@
     <div x-data="datepicker.init()" x-init="[initDate('{{ 'dt-' . $attributes['field'] }}'), getNoOfDays()]" x-cloak>
 
         <div class="relative">
-            <input type="hidden" name="{{ $attributes['field'] }}" x-ref="dt-{{ $attributes['field'] }}">
+            <input type="hidden" name="{{ $attributes['field'] }}" x-ref="dt-{{ $attributes['field'] }}" wire:model="{{ $attributes['field'] }}">
             <x-input
                     type="text"
                     readonly
@@ -72,7 +72,11 @@
                     <template x-for="(date, dateIndex) in no_of_days" :key="dateIndex">
                         <div style="width: 14.28%" class="px-1 mb-1">
                             <div
-                                    @click="getDateValue(date)"
+                                    @click="
+                                    getDateValue(date);
+                                    let element = document.getElementById('{{ $attributes['field'] }}');
+                                    element.dispatchEvent(new Event('input'));
+                                    "
                                     x-text="date"
                                     class="cursor-pointer text-center text-sm leading-none rounded leading-loose transition ease-in-out duration-100"
                                     :class="{'bg-blue-500 text-white': isToday(date) == true, 'text-neutral-700 hover:bg-blue-200': isToday(date) == false }"

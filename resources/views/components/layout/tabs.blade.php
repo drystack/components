@@ -4,9 +4,9 @@
 ])
 @php($first = array_key_first($tabs))
 
-<div x-data="{active_tab: '{{ $first }}', tabs: {{json_encode($tabs)}}}">
+<div class="w-full" x-data="{active_tab: '{{ $first }}', tabs: {{json_encode($tabs)}}}">
 
-    <ul class="flex cursor-pointer mb-2">
+    <ul class="flex w-full cursor-pointer mb-2">
         <template x-for="tab in Object.keys(tabs)" :key="tab">
             <li {{ $attributes->merge(['class' => 'py-2 px-6']) }} :class="active_tab === tab ? 'border-b-4 border-{{$color}}-500 text-{{$color}}-500' : 'text-neutral-400'"
                 x-text="tabs[tab]"

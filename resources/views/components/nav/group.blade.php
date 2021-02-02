@@ -7,8 +7,8 @@
 <div x-data="{ open: false, active: 0 }" @open-group="open = $event.detail.open" x-init="$watch('open', value => console.log(value))">
     <div
         @click="open = !open"
-        :class="active == 1 ? 'text-white bg-primary-800 ' : 'text-primary-50'"
-        class="flex justify-between items-center p-2 mt-2 rounded cursor-pointer hover:bg-primary-600 hover:text-primary-50"
+        :class="active == 1 ? 'text-white bg-primary-800 ' : 'text-primary-200'"
+        class="flex justify-between items-center p-2 mt-2 rounded cursor-pointer hover:bg-primary-600 hover:text-primary-200"
     >
         <div class="flex gap-2 items-center">
             @if(isset($icon))
