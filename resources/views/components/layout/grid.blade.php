@@ -1,6 +1,6 @@
 @props([
-    'cols' => '1'
-    'rows' => '1'
+    'cols' => '1',
+    'rows' => '1',
     'gap' => '6'
 ])
 @php($grid_cols_class = 'grid-cols-' . ($cols == 0 ? 'none' : $cols))
