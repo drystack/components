@@ -1,10 +1,9 @@
 @props(['icon' => null])
-<div class="ml-3 relative" x-cloak x-data="{ open: false, active: 0, hover: false }" @open-group="open = $event.detail.open" @mouseover.away = "open = false">
-    <div @mouseenter="open = true">
+<div class="ml-3 relative" x-cloak x-data="{ open: false, active: 0, hover: false }" @open-group="open = $event.detail.open">
+    <div @click="open = !open">
         {{ $trigger ?? '' }}
         @unless(isset($trigger))
         <div
-                @mouseenter="open = true"
                 :class="active == 1
                 ? 'text-white bg-primary-800 '
                 : (hover === true

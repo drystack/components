@@ -84,7 +84,7 @@
             <div class="pt-4 pb-3 border-t border-primary-600">
                 <div class="flex items-center px-5">
                     <div class="flex-shrink-0 w-12 h-12 bg-primary-800 uppercase rounded-full flex items-center justify-center text-primary-50">
-                        {{ Drystack\Helpers\StringHelper::initials(Auth::user()->name ?? '') }}
+                        {{ Drystack\ComponentsHelpers\StringHelper::initials(Auth::user()->name ?? '') }}
                     </div>
                     <div class="ml-3">
                         <div class="text-base font-medium leading-none text-white">{{ Auth::user()->name }}</div>
