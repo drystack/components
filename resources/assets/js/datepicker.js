@@ -17,7 +17,7 @@ export function init() {
 
         options: {weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'},
 
-        initDate(ref_name, max, min) {
+        initDate(ref_name, max, min, starting_value) {
             this.ref_name = ref_name;
             let today = new Date();
             this.month = today.getMonth();
@@ -25,7 +25,10 @@ export function init() {
 
             this.max = new Date(max ?? '2100-12-31');
             this.min = new Date(min ?? '1900-01-01');
-            // this.datepickerValue = new Date(this.year, this.month, today.getDate()).toLocaleDateString('it-IT', this.options);
+
+            if (starting_value) {
+                this.datepickerValue = new Date(starting_value).toLocaleDateString('it-IT', this.options);
+            }
         },
 
         isToday(date) {
