@@ -2018,6 +2018,7 @@ function init() {
       this.$refs[this.ref_name].value = selectedDate.getFullYear() + "-" + ('0' + (selectedDate.getMonth() + 1)).slice(-2) + "-" + ('0' + selectedDate.getDate()).slice(-2);
       console.log(this.$refs[this.ref_name].value);
       this.showDatepicker = false;
+      this.$refs[this.ref_name].dispatchEvent(new Event('input'));
     },
     getNoOfDays: function getNoOfDays() {
       var daysInMonth = new Date(this.year, this.month + 1, 0).getDate(); // find where to start calendar day of week
@@ -2053,6 +2054,18 @@ function init() {
         this.month = 0;
         this.year++;
       }
+    },
+    prevYear: function prevYear() {
+      this.year--;
+    },
+    nextYear: function nextYear() {
+      this.year++;
+    },
+    prev10Year: function prev10Year() {
+      this.year -= 10;
+    },
+    next10Year: function next10Year() {
+      this.year += 10;
     },
     isMinDate: function isMinDate() {
       if (this.min === '') return false;

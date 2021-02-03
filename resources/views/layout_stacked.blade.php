@@ -79,7 +79,7 @@
         -->
         <div class="md:hidden" :class="mobileOpen ? 'block' : 'hidden'">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                @include('drystack::menu', ['stacked' => true])
+                @include('drystack::menu', ['stacked' => false])
             </div>
             <div class="pt-4 pb-3 border-t border-primary-600">
                 <div class="flex items-center px-5">

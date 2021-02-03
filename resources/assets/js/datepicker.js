@@ -45,6 +45,7 @@ export function init() {
             console.log(this.$refs[this.ref_name].value);
 
             this.showDatepicker = false;
+            this.$refs[this.ref_name].dispatchEvent(new Event('input'));
         },
 
         getNoOfDays() {
@@ -90,6 +91,14 @@ export function init() {
 
         nextYear() {
             this.year++;
+        },
+
+        prev10Year() {
+            this.year -= 10;
+        },
+
+        next10Year() {
+            this.year += 10;
         },
 
         isMinDate() {
