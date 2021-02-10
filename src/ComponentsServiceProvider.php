@@ -53,6 +53,7 @@ class ComponentsServiceProvider extends ServiceProvider {
             'drystack::components.nav.dropdown-link' => 'dropdown-link',
             'drystack::components.notification.notification' => 'notification',
             'drystack::components.form.form' => 'form',
+            'drystack::components.form.step' => 'step',
             'drystack::components.form.label' => 'label',
             'drystack::components.form.input' => 'input',
             'drystack::components.form.input-base' => 'input-base',

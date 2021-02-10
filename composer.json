@@ -8,7 +8,7 @@
     ],
     "license": "AGPL-3.0-only",
     "require": {
-        "php": ">=7.4",
+        "php": "^8.0",
         "illuminate/contracts": "^8.0",
         "illuminate/support": "^8.0",
         "livewire/livewire": "^2.3"

@@ -3,7 +3,7 @@
     'format' => 'full',
     'custom' => null
 ])
-@php($base = "px-6 py-2 rounded m-1 uppercase text-xs tracking-wide ")
+@php($base = "px-6 py-2 rounded m-1 uppercase text-xs tracking-wide cursor-pointer ")
 
 @if($format == 'outline')
     @php($class = $base . " shadow bg-transparent text-$color-500 border border-$color-500 hover:border-$color-700 hover:bg-$color-600 hover:text-white")

@@ -1,9 +1,9 @@
 <div class="antialiased container  mb-2">
-    <div x-data="datepicker.init()" x-init="[initDate('{{ 'dt-' . $attributes['field'] }}'), getNoOfDays()]" x-cloak>
+    <div x-data="datepicker.init()" x-init="[initDate('{{ 'dt-' . $attributes['field'] }}', null, null, '{{ $attributes['initialvalue'] }}'), getNoOfDays()]" x-cloak>
 
         <div class="relative">
 
-            <input type="hidden" name="{{ $attributes['field'] }}" x-ref="dt-{{ $attributes['field'] }}" wire:model="$attributes['field']">
+            <input type="hidden" name="{{ $attributes['field'] }}" x-ref="dt-{{ $attributes['field'] }}" wire:model="{{ $attributes['field'] }}">
             <x-input
                     type="text"
                     readonly
@@ -11,7 +11,6 @@
                     @click="showDatepicker = !showDatepicker"
                     @keydown.escape="showDatepicker = false"
                     placeholder="Seleziona data"
-                    field="{{ $attributes['field'] ?? ''}}"
                     label="{{ $attributes['label'] ?? ''}}"
             />
 
@@ -60,7 +59,7 @@
                             <svg class="w-4 h-4 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7"></path></svg>
                         </button>
                         <div>
-                            
+
                             <button
                                 type="button"
                                 class="transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-neutral-200 p-1 rounded"

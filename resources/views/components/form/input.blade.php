@@ -1,7 +1,8 @@
 @props([
     'icon' => null
 ])
-@php($class = "w-full pl-4 pr-10 py-3 rounded-lg leading-none focus:shadow-inner focus:outline-none")
+
+@php($class = "w-full  pl-4 pr-2 py-3 rounded-lg leading-none focus:shadow-inner focus:outline-none")
 @if(isset($attributes['disabled']))
     @php($class .= " bg-neutral-100 text-neutral-400")
 @else
