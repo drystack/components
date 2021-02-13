@@ -1,12 +1,12 @@
 @props(['fields' => null, 'pageaction' => null, 'steps' => false])
 
 @if($steps)
-    @foreach($fields as $field)
+    @foreach($fields->getSteps() as $k => $step)
         @php
-            if (is_null($field)) continue;
-            $field = $field->build();
+            if (is_null($step)) continue;
+            $step = $step->build();
         @endphp
-        <x-step :visible="$field['visible']" :title="$field['title']" :subtitle="$field['subtitle']" :first="$field['first']" :last="$field['last']" :action="$field['action']" :fields="$field['children']" :pageaction="$pageaction"/>
+        <x-step :visible="$k == $fields->getCurrentStep()" :title="$step['title']" :subtitle="$step['subtitle']" :first="$k == 1" :last="$k == count($fields->getSteps())" :action="$step['action']" :fields="$step['children']" :pageaction="$pageaction"/>
     @endforeach
 @else
     <form {{ $attributes->merge(['class' => 'flex flex-1 flex-col items-start']) }} wire:submit.prevent="{{ $attributes['action'] ?? 'submit' }}">
